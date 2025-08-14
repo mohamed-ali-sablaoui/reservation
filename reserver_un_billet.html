@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reserver_un_billet</title>
+    <style>
+        /* CSS تصميم مودرن وبسيط */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {position: absolute;
+    top:80px ;
+    background-color: #9ff8f1ea; /* أبيض مع شفافية خفيفة */
+    padding: 50px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 400px;
+    
+}
+
+h1 {position: absolute;
+    color: #57c1c9;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    top: 0px;
+    box-shadow: 3px 3px 5px rgb(58, 44, 44);
+    border-radius: 10px;
+    background-color: #a2faeb;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+td:first-child {
+    font-weight: 600;
+    color: #555;
+    padding-right: 15px;
+    vertical-align: middle;
+    width: 40%;
+    font-size: 14px;
+}
+
+td:last-child {
+    width: 60%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #74ebd5;
+    box-shadow: 0 0 8px #74ebd5;
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    background-color: #74ebd5;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 25px;
+}
+
+input[type="submit"]:hover {
+    background-color: #57c1c9;
+}
+option{
+    background-color: aquamarine;
+    color: rgb(35, 82, 35);
+}
+p{
+    color :red;
+}
+    </style>
+    <script >
+       function verife() {
+        let   np =document.getElementById("nom_p").value.trim() ;
+        let   em =document.getElementById("email").value.trim() ;
+        let   td =document.getElementById("destination").selectedIndex ;
+        let   tv =document.getElementById("tyv").selectedIndex ;
+        let   h =document.getElementById("hotelle").selectedIndex ;
+        let   dv =document.getElementById("datv").value.trim() ;
+        let   d =document.getElementById("dur").value ;
+        let   nv =document.getElementById("nombv").value ;
+        let   nc =document.getElementById("nombch").value ;
+        let c1 =document.getElementById("ch1") ;
+        let c2 =document.getElementById("ch2") ;
+        let c3 =document.getElementById("ch3") ;
+        let c4 =document.getElementById("ch4") ;
+        let c5 =document.getElementById("ch5") ;
+        let c6 =document.getElementById("ch6") ;
+        let c7 =document.getElementById("ch7") ;
+        let c8 =document.getElementById("ch8") ;
+        let c9 =document.getElementById("ch9") ;
+        let c10 =document.getElementById("ch10") ;
+        let c11 =document.getElementById("ch11") ;
+        c1.innerHTML="";
+        c3.innerHTML="";
+        c5.innerHTML="";
+        c6.innerHTML="";
+        c7.innerHTML="";
+        c8.innerHTML="";
+        c9.innerHTML="";
+        c10.innerHTML="";
+        c11.innerHTML="";
+        let err = true ;
+        if (np===""){
+            c1.innerHTML="-entrer votre nomme et prenom.\n";
+            err= false ;
+        }
+        
+        if (em===""){
+            c3.innerHTML="-entrer votre email.\n"; 
+            err= false ;    
+        }
+        else{
+             let  mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!mail.test(em)){
+                c3.innerHTML="-votre email non valider.\n le forme correct ;'exemple@gmail.com'";
+                err= false ;
+            }
+        }
+        
+        if (td===0){
+            c5.innerHTML="-entrer votre destination.\n";
+            err= false ;
+        }
+        if (tv===0){
+            c6.innerHTML="-entrer le type du voyage.\n";
+            err= false ;
+        }
+        if (h===0){
+            c7.innerHTML="-entrer le type de hotelle.\n";
+            err= false ;
+        }
+        if (dv===""){
+            c8.innerHTML="-entrer la date du voyage.\n";
+            err= false ;
+        }
+        if (d==="0"){
+            c9.innerHTML="-entrer la dure du voyage.\n" ;
+            err= false ;
+        }
+        if (nv==="0"){
+            c10.innerHTML="-entrer le nombre de voyageurs.\n" ;
+            err= false ;
+        }
+        if (nc==="0"){
+            c11.innerHTML="-entrer le nombre du chambre .\n" ;
+            err= false ;
+        }
+        if (err===false){
+            return false ;
+        }
+        return true;
+       }
+    </script>
+</head>
+<body>
+    <h1>reserver avec nous</h1>
+    <form action="criation.php" method="post">
+    <table>
+        <tr>
+            <td>nomme et prenom:</td>
+            <td><input type="text" name="np" id="nom_p">
+            <p id="ch1"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>email :</td>
+            <td><input type="email" name="em" id="email">
+            <p id="ch3"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        </tr>
+        <tr>
+            <td>Pays de destination</td>
+            <td><select name="td" id="destination">
+                    <option value=""></option>
+                    <option value="tunisia">tunisia</option>
+                    <option value="France">France</option>
+                    <option value="Italie">Italie</option>
+                    <option value="Espagne">Espagne</option>
+                    <option value="états_unis">états_unis</option>
+                    <option value="jqpon">jqpon</option>
+                    <option value="Turquie">Turquie</option>
+                    <option value="Allemegne">Allemegne</option>
+                    <option value="Maroc">Maroc</option>
+                </select>
+            <p id="ch5"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>type de voyage</td>
+            <td><select name="tv" id="tyv" >
+                   <option value=""></option>
+                   <option value="V.I.P">extra</option>
+                   <option value="normale">normale</option>
+                </select>
+            <p id="ch6"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>type de hotelle</td>
+            <td>
+                <select name="h" id="hotelle">
+                    <option value=""></option>
+                    <option value="3 etoiles">3 etoiles</option>
+                    <option value="4 etoiles">4 etoiles</option>
+                    <option value="5 etoiles">5 etoiles</option>
+                </select>
+                <p id="ch7"></p>
+            </td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>date de voyage</td>
+            <td><input type="date" name="dv" id="datv">
+            <p id="ch8"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>duree du voyage en jours</td>
+            <td><input type="number" name="duree" id="dur" value="0">
+            <p id="ch9"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>nombre de voyageurs</td>
+            <td><input type="number" name="nv" id="nombv" value="0">
+            <p id="ch10"></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td>nombre de chambre</td>
+            <td><input type="number" name="nch" id="nombch" value="0">
+            <p id="ch11"></p></td>
+        </tr>
+    </table>
+     <input type="submit" onclick="return verife();" value="verifier"  >
+    </form>
+
+</body>
+</html>
